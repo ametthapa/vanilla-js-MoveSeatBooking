@@ -14,6 +14,7 @@ function setMovieData(movieIndex, moviePrice){
     localStorage.setItem('selectedMoviePrice', moviePrice);
 }
 
+//add previous selected seat
 function populateUI(){
     const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
 
@@ -55,7 +56,7 @@ movieSelect.addEventListener('change',e=>{
 //seat select event
 container.addEventListener('click', e=>{
     if(e.target.classList.contains('seat') && !e.target.classList.contains('occupied') ){
-        !e.target.classList.toggle('selected');
+        e.target.classList.toggle('selected');
     }
     
     updateSelectedCount();
